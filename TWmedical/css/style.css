@@ -1,0 +1,62 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+	width: 80%;
+    display: table-cell;
+    text-align:center;
+    font-family: Microsoft JhengHei;
+}
+
+
+p {
+	font-size: 16px;
+	text-align:left;
+}
+
+#part3{
+	margin-top: 15%;
+}
+
+#part4{
+	margin-top: 30%;
+}
+
+@media (min-width: @screen-sm-min) {
+	#part3{
+		margin-top: 0%;
+	};
+	#part4{
+		margin-top: 0%;
+	};
+}
+
+#p5{
+	margin-top: 2%;
+}
+
+#part5{
+	margin-top: 3%;
+	font-size: 16px;
+	margin-bottom: 3%;
+}
+
+#pic1{
+	text-align:center;
+}
+
+h3{
+	margin-top: 30px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+h2{
+	font-weight: bold;
+}
