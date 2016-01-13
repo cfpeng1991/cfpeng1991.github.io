@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>不山不市的醫師最難當</title>
-    
+
     <meta name="og:title" content="不山不市的醫師最難當">
-    <meta name="og:description" content="NCCU Data Journalism Final Project - TW Medical Situation">
+    <meta name="og:description" content="政大資料新聞學期末專案">
     <meta name="og:type" content="article">
+    <meta name="og:image" content="tiredDoctor1.png">
     <meta name="description" content="NCCU Data Journalism Final Project - TW Medical Situation">
     <meta name="author" content="Joyce Peng">
 
@@ -26,21 +27,26 @@
 	<script>
 		$(function () {
 		    $('#chart1').highcharts({
+
 		        chart: {
 		            type: 'boxplot'
 		        },
+
 		        title: {
 		            text: '各縣市中鄉鎮市區醫師資源情況'
 		        },
+
 		        legend: {
 		            enabled: false
 		        },
+
 		        xAxis: {
 		            categories: ['新北市', '台北市', '桃園市', '台中市', '台南市', '高雄市', '宜蘭縣', '新竹縣', '苗栗縣', '彰化縣', '南投縣', '雲林縣', '嘉義縣', '屏東縣', '台東縣', '花蓮縣', '澎湖縣', '基隆市', '新竹市', '嘉義市', '金門縣', '連江縣'],
 		            labels: {
 		                rotation: 270
 		            }
 		        },
+
 		        yAxis: {
 		            title: {
 		                text: '每位醫師需服務人數'
@@ -62,12 +68,15 @@
 		                }
 		            }]
 		        },
+
 		        plotOptions: {
 		            series: {
 		                colorByPoint: true
 		            }
 		        },
+
         		colors: ['#7cb5ec', '#4e4eca', '#7cb5ec', '#7cb5ec', '#7cb5ec', '#007f80', '#7cb5ec', '#f45b5b', '#7cb5ec', '#7cb5ec', '#f7a35c', '#7cb5ec', '#7cb5ec', '#7cb5ec', '#f7a35c', '#7cb5ec', '#f7a35c', '#7cb5ec', '#cc0099', '#4e4eca', '#f45b5b', '#7cb5ec'],
+
 		        series: [{
 		            name: '各區域間的差異',
 		            data: [
@@ -104,8 +113,27 @@
 						'最少: {point.low}<br/>'
 		            }
 		        }]
-		    });
+
+		    }, function (chart) {
+			    var vis = true;
+			    var group = chart.renderer.image('boxPlot_s.png', 70, 10, 405, 405)
+			        .attr({
+			                zIndex: 6
+			            }).add();
+			    group.hide();
+			    // add the button handler
+			    $('#button').click(function () {
+			        if (vis) {
+			            group.show();
+			        } else {
+			            group.hide();
+			        }
+			        vis = !vis;
+			    });
+
+			});
 			$('#chart1').highcharts().yAxis[0].setExtremes(0,15000);
+
 		});
 	</script>
 
@@ -115,6 +143,7 @@
 		        chart: {
 		            type: 'area'
 		        },
+
 		        title: {
 		            text: ''
 		        },
@@ -135,6 +164,7 @@
 		                lineWidth: 1
 		            }
 		        },
+
 		        series: [{
 		            name: '西醫師人數',
 		            color: '#a6cdf2',
@@ -150,9 +180,11 @@
 		                valueSuffix: ' 人',
 		                shared: true
 		            }
+
 		    });
 		});
 	</script>
+
 
   </head>
   <body >
@@ -170,13 +202,14 @@
 					<br>記者／彭久芳、三村知寬　整理報導
 				</h4>
 				<p>
-					全台灣最缺乏醫療資源的地方不是離島也不是山區，而是一、二級行政區(六都以外的縣)中非重心發展的城鎮。政府所定義的醫療資源缺乏地區，包含每位醫師服務超過4300人或位於山區、離島者，提供醫療資源、經費補助。但是根據衛生福利部103年醫院及診所人力統計資料，仍有其他不符合補助條件，卻是醫療資源不足的地區。
+					全台灣最缺乏醫療資源的地方不是離島也不是山區，而是一、二級行政區(六都以外的縣)中非重心發展的城鎮。政府所定義的醫療資源缺乏地區，包含每位醫師服務超過4300人或位於山區、離島者，提供醫療資源、經費補助。但是根據<a target="_blank" href="http://www.mohw.gov.tw/cht/DOS/DM1.aspx?f_list_no=557&fod_list_no=4173">衛生福利部103年醫院及診所人力統計資料</a>，仍有其他不符合補助條件，卻是醫療資源不足的地區。
 				</p>
 			</div>
 		</div>
 		<div class="col-md-1">
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-md-1">
 		</div>
@@ -337,6 +370,7 @@
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-5">
+			<button id="button"  class="btn btn-default" style="float: left; margin-left:3%;">圖說Box plot</button>
 			<div id="chart1" style="height: 520px; margin: auto; min-width: 310px; max-width: 800px"></div>
 		</div>
 		<div class="col-md-5">
@@ -354,7 +388,7 @@
 		<div class="col-md-1"></div>
 	</div>
 
-	<div class="row">
+	<div class="row" id="pre4">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
 				<div class="text-center">
@@ -391,7 +425,8 @@
 		</div>
 		<div class="col-md-1"></div>
 	</div>
-  
-  </div>
+
   </body>
 </html>
+
+
